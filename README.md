@@ -5,6 +5,7 @@
   </p>
 </div>
 
+# **Packages:**
 ## **Webpack4:**
 - `webpack`
 - `webpack-cli`
@@ -15,6 +16,10 @@
 - `@babel/core` 
 - `@babel/preset-env`
 - `babel-loader`
+>  As of Babel 7.4.0, this package has been deprecated in favor of directly including core-js/stable (to polyfill ECMAScript features) and regenerator-runtime/runtime (needed to use transpiled generator functions) https://babeljs.io/docs/en/babel-polyfill/#usage-in-node-browserify-webpack
+- `core-js`
+- `regenerator-runtime`
+
 
 ## **Css:**
 - `css-loader`

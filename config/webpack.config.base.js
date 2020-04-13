@@ -43,7 +43,27 @@ module.exports = {
       use: {
         loader: 'babel-loader',
         options: {
-          presets: ['@babel/preset-env']
+          // sourceType: 'unambiguous',
+          presets: [
+            [
+              '@babel/preset-env',
+              {
+                // forceAllTransforms: true,
+                // useBuiltIns: 'entry',
+                // corejs: 3,
+                // modules: false,
+                exclude: ['transform-typeof-symbol'] // to prevent IE 11 error
+              }
+            ]
+          ],
+          // plugins: [
+          //   [
+          //     '@babel/plugin-transform-runtime',
+          //     {
+          //       corejs: 3
+          //     }
+          //   ]
+          // ]
         }
       }
     }, {

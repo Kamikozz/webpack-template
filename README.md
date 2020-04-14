@@ -12,6 +12,12 @@
 - `webpack-dev-server` - to serve & auto-reload webpack
 - `webpack-merge` - to split configuration into dev/prod config files
 
+## **Eslint:**
+- `eslint`
+- `eslint-loader` - webpack eslint loader
+- `eslint-plugin-import` - to show what sort of dependency do we have dev/prod in package.json
+- `eslint-config-airbnb-base` - airbnb preset for eslint
+
 ## **Babel:**
 - `@babel/core` 
 - `@babel/preset-env`
@@ -19,7 +25,6 @@
 >  As of Babel 7.4.0, this package has been deprecated in favor of directly including core-js/stable (to polyfill ECMAScript features) and regenerator-runtime/runtime (needed to use transpiled generator functions) https://babeljs.io/docs/en/babel-polyfill/#usage-in-node-browserify-webpack
 - `core-js`
 - `regenerator-runtime`
-
 
 ## **Css:**
 - `css-loader`

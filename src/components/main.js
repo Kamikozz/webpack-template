@@ -1,23 +1,21 @@
-'use strict';
-console.log(eval('3 + 5'));
+// 'use strict';
+
 const add = (a, b) => a + b;
 
 console.log(add(2, 3));
 console.log('lol');
 
-// (async function() {
-//   const items = await fetch('https://yandex.ru');
-//   console.log(items);
-// })();
+// let print;
 
-async function f() {
-  let promise = new Promise((resolve, reject) => {
-    setTimeout(() => resolve("готово!"), 1000)
-  });
+// setTimeout(() => {
+//   import(/* webpackChunkName: 'trash' */ './trash').then(module => {
+//     print = module.default;
+//     // console.log(module);
+//     // module();
+//     print();
+//   });
 
-  let result = await promise; // будет ждать, пока промис не выполнится (*)
-
-  alert(result); // "готово!"
-}
-
-f();
+//   setTimeout(() => {
+//       print();
+//   }, 5000);
+// }, 5000);

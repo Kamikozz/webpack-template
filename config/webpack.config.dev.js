@@ -1,14 +1,14 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 const Webpack = require('webpack');
 const merge = require('webpack-merge');
 const baseWebpackConfig = require('./webpack.config.base');
-
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
   devServer: {
-    contentBase: baseWebpackConfig.externals.paths.dist, // где будет открываться вебпак (папка dist)
+    contentBase: baseWebpackConfig.externals.paths.dist, // where to open webpack (dist folder)
     port: 8081,
     overlay: true,
   },
@@ -22,9 +22,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new MiniCssExtractPlugin({
       filename: `${baseWebpackConfig.externals.paths.assets}css/[name].[hash].css`,
     }),
-  ]
+  ],
 });
 
-module.exports = new Promise((resolve, reject) => {
+module.exports = new Promise((resolve) => {
   resolve(devWebpackConfig);
 });

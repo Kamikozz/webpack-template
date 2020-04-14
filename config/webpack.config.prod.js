@@ -1,7 +1,7 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 const merge = require('webpack-merge');
 const baseWebpackConfig = require('./webpack.config.base');
-
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const prodWebpackConfig = merge(baseWebpackConfig, {
   mode: 'production',
@@ -12,9 +12,9 @@ const prodWebpackConfig = merge(baseWebpackConfig, {
     new MiniCssExtractPlugin({
       filename: `${baseWebpackConfig.externals.paths.assets}css/[name].[contenthash].css`,
     }),
-  ]
+  ],
 });
 
-module.exports = new Promise((resolve, reject) => {
+module.exports = new Promise((resolve) => {
   resolve(prodWebpackConfig);
 });

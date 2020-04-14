@@ -11,11 +11,11 @@ const PATHS = {
   config: 'config/',
   fonts: 'fonts/',
   img: 'img/',
-}
+};
 
 module.exports = {
   externals: {
-    paths: PATHS
+    paths: PATHS,
   },
   entry: {
     app: `${PATHS.src}/index.js`,
@@ -29,43 +29,39 @@ module.exports = {
       cacheGroups: {
         vendor: {
           name: 'vendors',
-          test: /node_modules/,
+          test: /[\\/]node_modules[\\/]/,
           chunks: 'all',
           enforce: true,
-        }
-      }
-    }
+        },
+      },
+    },
   },
   module: {
     rules: [{
       test: /\.js$/,
       exclude: '/node_modules/',
-      use: {
-        loader: 'babel-loader',
-        options: {
-          // sourceType: 'unambiguous',
-          presets: [
-            [
-              '@babel/preset-env',
-              {
-                // forceAllTransforms: true,
-                // useBuiltIns: 'entry',
-                // corejs: 3,
-                // modules: false,
-                exclude: ['transform-typeof-symbol'] // to prevent IE 11 error
-              }
-            ]
-          ],
-          // plugins: [
-          //   [
-          //     '@babel/plugin-transform-runtime',
-          //     {
-          //       corejs: 3
-          //     }
-          //   ]
-          // ]
-        }
-      }
+      use: [
+        {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              [
+                '@babel/preset-env',
+                {
+                  exclude: ['transform-typeof-symbol'], // to prevent IE 11 error
+                },
+              ],
+            ],
+          },
+        },
+        {
+          loader: 'eslint-loader',
+          options: {
+            cache: true,
+            // configFile: `${PATHS.config}.eslintrc.js`,
+          },
+        },
+      ],
     }, {
       test: /\.scss$/,
       use: [
@@ -74,23 +70,23 @@ module.exports = {
         {
           loader: 'css-loader',
           options: {
-            sourceMap: true
-          }
+            sourceMap: true,
+          },
         }, {
           loader: 'postcss-loader',
           options: {
             sourceMap: true,
             config: {
-              path: `${PATHS.config}postcss.config.js`
-            }
-          }
+              path: `${PATHS.config}postcss.config.js`,
+            },
+          },
         }, {
           loader: 'sass-loader',
           options: {
-            sourceMap: true
-          }
+            sourceMap: true,
+          },
         },
-      ]
+      ],
     }, {
       test: /\.css$/,
       use: [
@@ -99,35 +95,35 @@ module.exports = {
         {
           loader: 'css-loader',
           options: {
-            sourceMap: true
-          }
+            sourceMap: true,
+          },
         }, {
           loader: 'postcss-loader',
           options: {
             sourceMap: true,
             config: {
-              path: `${PATHS.config}postcss.config.js`
-            }
-          }
+              path: `${PATHS.config}postcss.config.js`,
+            },
+          },
         },
-      ]
+      ],
     }, {
       test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/i,
-      loader: "file-loader",
+      loader: 'file-loader',
       options: {
-        name: "[name].[ext]"
-      }
+        name: '[name].[ext]',
+      },
     }, {
       test: /\.(png|jpe?g|gif|svg)$/i,
       loader: 'file-loader',
       options: {
-        name: '[name].[ext]'
+        name: '[name].[ext]',
       },
     }, {
       test: /\.(wav|mp3)$/i,
       loader: 'file-loader',
       options: {
-        name: '[name].[ext]'
+        name: '[name].[ext]',
       },
     }],
   },
@@ -140,13 +136,14 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: `${PATHS.src}/${PATHS.assets}${PATHS.img}`, to: `${PATHS.assets}${PATHS.img}` },
-      { 
-        from: `${PATHS.src}/${PATHS.assets}${PATHS.fonts}`, to: `${PATHS.assets}${PATHS.fonts}`,
-        ignore: ['*LICENSE*']
+      {
+        from: `${PATHS.src}/${PATHS.assets}${PATHS.fonts}`,
+        to: `${PATHS.assets}${PATHS.fonts}`,
+        ignore: ['*LICENSE*'],
       },
       { from: `${PATHS.src}/${PATHS.assets}icons/`, to: `${PATHS.assets}icons/` },
       { from: `${PATHS.src}/${PATHS.assets}music/`, to: `${PATHS.assets}music/` },
-      { from: `${PATHS.src}/${PATHS.static}`, to: `` }
-    ])
+      { from: `${PATHS.src}/${PATHS.static}`, to: '' },
+    ]),
   ],
-}
+};

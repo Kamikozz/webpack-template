@@ -1,10 +1,13 @@
-// 'use strict';
+import trash from './trash';
 
 const add = (a, b) => a + b;
 
 console.log(add(2, 3));
 console.log('lol');
 
+trash();
+
+// Lazy Loading
 // let print;
 
 // setTimeout(() => {

@@ -48,6 +48,9 @@
 - `file-loader` - to process other files (eg. images, .png, .gif)
 - `copy-webpack-plugin` - just to copy files with directories from -> to
 
+## **Other plugins/tools:**
+- `clean-webpack-plugin` - to clean the `/dist` folder before each build
+
 ## **Source Maps:**
 - allows to see exactly the same filename as the development *(not app.js, but script.js)*
 ```js

@@ -1,12 +1,14 @@
-import trash from './trash';
+// Write code here, this is the entry point
+// where you can define your components and initialize them
+//
+// import MainComponent from './main-component/main-component';
+//
+// const main = new MainComponent();
+//
+// main.init();
 
-const add = (a, b) => a + b;
-
-console.log(add(2, 3));
-console.log('lol');
-
-trash();
-
+// Delete this:
+//
 // Lazy Loading
 // let print;
 

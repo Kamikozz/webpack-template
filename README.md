@@ -81,7 +81,10 @@ git clone https://github.com/kamikozz/webpack-template webpack-template
 cd webpack-template
 
 # Install dependencies:
+# 1. from package.json (with the given versions)
 npm install
+# 2. with newest versions
+npm install --save-dev @babel/core @babel/preset-env autoprefixer babel-eslint babel-loader clean-webpack-plugin copy-webpack-plugin core-js css-loader css-mqpacker cssnano eslint eslint-config-airbnb-base eslint-loader eslint-plugin-import file-loader html-webpack-plugin mini-css-extract-plugin node-sass path postcss-loader regenerator-runtime sass-loader style-loader webpack webpack-cli webpack-dev-server webpack-merge
 
 # Server with hot reload at http://localhost:8081/
 npm run dev

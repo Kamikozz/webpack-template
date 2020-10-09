@@ -36,7 +36,6 @@
 - `node-sass`
 
 ## **Postcss:**
-- `css-mqpacker` - to process media queries (grouping of media queries)
 - `autoprefixer` - to perform browser compatibility
 - `cssnano` - to compress the css code + removes comments
 - `postcss-loader`

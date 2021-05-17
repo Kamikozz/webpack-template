@@ -26,7 +26,10 @@ module.exports = {
     paths: PATHS,
   },
   entry: {
-    app: `${PATHS.src}/index.js`,
+    app: `${PATHS.src}/index.ts`,
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js', '.css', '.scss'],
   },
   output: {
     path: PATHS.dist,
@@ -46,6 +49,11 @@ module.exports = {
   },
   module: {
     rules: [{
+      test: /\.tsx?$/,
+      use: 'ts-loader',
+      exclude: /node_modules/,
+    },
+    {
       test: /\.js$/,
       exclude: [
         /(node_modules|dist|public)/,
